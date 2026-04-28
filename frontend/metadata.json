@@ -1,0 +1,7 @@
+{
+  "name": "LangGenie Prototype",
+  "description": "A hackathon prototype for LangGenie: A real-time, personalized English learning solution integrated with smart displays.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
