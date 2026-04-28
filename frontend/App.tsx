@@ -7,6 +7,7 @@ import { VideoPlayer } from './components/VideoPlayer';
 import { demoSubtitles, demoVocab, demoGrammar } from './mockSubtitles';
 import { MobileSync } from './components/MobileSync';
 import { QuizModal } from './components/QuizModal';
+import { EntryScreen } from './components/EntryScreen';
 
 // Updated with the requested Judson Brewer TED Talk ID
 const YOUTUBE_VIDEOS = [
@@ -38,6 +39,7 @@ function createBlob(data: Float32Array): Blob {
 }
 
 export default function App() {
+  const [hasEntered, setHasEntered] = useState(false);
   const [level, setLevel] = useState<UserLevel>(UserLevel.INTERMEDIATE);
   const [selectedVideo, setSelectedVideo] = useState(YOUTUBE_VIDEOS[0]);
   // Live API & Audio State
@@ -220,6 +222,15 @@ export default function App() {
     );
   };
 
+  if (!hasEntered) {
+    return (
+      <EntryScreen 
+        youtubeId={selectedVideo.id} 
+        onEnter={() => setHasEntered(true)} 
+      />
+    );
+  }
+
   return (
     <div className="flex h-screen w-full bg-samsung-dark overflow-hidden font-sans">
       
@@ -263,7 +274,7 @@ export default function App() {
                   
                   {transcripts.length === 0 && !isListening && !error && (
                     <div className="h-full flex items-center justify-center text-gray-500 text-sm">
-                      Click "Start AI Subtitles" to begin real-time transcription.
+                      Click "Study Mode" to begin real-time transcription.
                     </div>
                   )}
 
