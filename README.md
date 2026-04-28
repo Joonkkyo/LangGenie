@@ -1,4 +1,4 @@
-# LangGenie Prototype
+# LangGenie
 
 LangGenie is an interactive, real-time language learning platform that leverages the power of Generative AI and advanced Speech-to-Text technology to turn any video into a dynamic language lesson. Built for the Samsung Hackathon, it demonstrates a seamless integration between real-time multimedia consumption and personalized language education.
 
